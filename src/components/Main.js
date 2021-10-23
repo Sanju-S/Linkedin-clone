@@ -36,63 +36,51 @@ const Main = (props) => {
 
   return (
     <>
-      {props.articles.length === 0 ? (
-        <p>There are no articles</p>
-      ) : (
-        <Container>
-          <ShareBox>
-            <div>
-              {props.user && props.user.photoURL ? (
-                <img src={props.user.photoURL} alt="" />
-              ) : (
-                <img src="/images/user.svg" alt="" />
-              )}
-              <button
-                onClick={handleClick}
-                disabled={props.loading ? true : false}
-              >
-                Start a post
-              </button>
-            </div>
+      <Container>
+        <ShareBox>
+          <div>
+            {props.user && props.user.photoURL ? (
+              <img src={props.user.photoURL} alt="" />
+            ) : (
+              <img src="/images/user.svg" alt="" />
+            )}
+            <button
+              onClick={handleClick}
+              disabled={props.loading ? true : false}
+            >
+              Start a post
+            </button>
+          </div>
 
-            <div>
-              <button>
-                <img
-                  className="photoIcon"
-                  src="/images/photo-icon.svg"
-                  alt=""
-                />
-                <span>Photo</span>
-              </button>
+          <div>
+            <button>
+              <img className="photoIcon" src="/images/photo-icon.svg" alt="" />
+              <span>Photo</span>
+            </button>
 
-              <button>
-                <img
-                  className="videoIcon"
-                  src="/images/video-icon.svg"
-                  alt=""
-                />
-                <span>Video</span>
-              </button>
+            <button>
+              <img className="videoIcon" src="/images/video-icon.svg" alt="" />
+              <span>Video</span>
+            </button>
 
-              <button>
-                <img
-                  className="eventIcon"
-                  src="/images/event-icon.svg"
-                  alt=""
-                />
-                <span>Event</span>
-              </button>
+            <button>
+              <img className="eventIcon" src="/images/event-icon.svg" alt="" />
+              <span>Event</span>
+            </button>
 
-              <button>
-                <img
-                  className="articleIcon"
-                  src="/images/article-icon.svg"
-                  alt=""
-                />
-                <span>Write article</span>
-              </button>
-            </div>
-          </ShareBox>
+            <button>
+              <img
+                className="articleIcon"
+                src="/images/article-icon.svg"
+                alt=""
+              />
+              <span>Write article</span>
+            </button>
+          </div>
+        </ShareBox>
+        {props.articles.length === 0 ? (
+          <p>There are no articles</p>
+        ) : (
           <Content>
             {props.loading && <img src="/images/spin-loader.svg" alt="" />}
             {props.articles.length > 0 &&
@@ -168,10 +156,10 @@ const Main = (props) => {
                 </Article>
               ))}
           </Content>
+        )}
 
-          <PostModal showModal={showModal} handleClick={handleClick} />
-        </Container>
-      )}
+        <PostModal showModal={showModal} handleClick={handleClick} />
+      </Container>
     </>
   );
 };
